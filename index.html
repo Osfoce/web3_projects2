@@ -25,14 +25,14 @@
             let button = event.target;
             ethereum.request({ method: 'eth_requestAccounts' }).then(accounts => {
                 account = accounts[0];
-                console.log(account);
+                console.log("Address" , account);
                button.textContent = account;
 
                 ethereum.request({ method: 'eth_getBalance', params: [account, 'latest'] }).then(result => {
-                    console.log(result);
+                    console.log("Hashed bal" , result);
                     let wei = parseInt(result, 16);
                     let balance = wei / (10 ** 18);
-                    console.log(balance + " ETH");
+                    console.log("Account Balance" , balance + " ETH");
                 });
             })
         });
